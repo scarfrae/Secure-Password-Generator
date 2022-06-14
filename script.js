@@ -79,38 +79,34 @@ function generatePassword() {
     passwordArr = passwordArr.concat(uppercase_letters);
   }
 
-  
   if(use_options.lower_response){
     //add to empty array
     passwordArr = passwordArr.concat(lowercase_letters);
+    console.log (passwordArr);
   }
+  //i = incrementation variable
+  //length_char is length of password that user chooses
+  //
+  let password = []; //emptu array
+  for(var i = 0; i <= use_options.length_char; i++){
+    var random_password_number = passwordArr[Math.floor(Math.random()*use_options.length_char)];
+    console.log (random_password_number);
+    
+    user_password = password.push(random_password_number + i);
+    //console.log (user_password);
+    
+  }
+  return user_password;
   //passwordArr has all available char that can be used
   //create a loop to iterate over avaliable options ad based on options generate new array that is password
   //use forloop and then use random function within
-  return num_response[Math.floor(Math.random()*length_char)]
   //Entire thing wrong
   // if(use_options.num_response){
   //   var random_num_array = num_response[Math.floor(Math.random()*length_char)]
   //   console.log (random_num_array);
   // }
 
-
-    // let num_arr = []; 
-    // num_arr.push()
-    //randomized: math.floor.math.random and make empty arrays to keep new info
-  // }
-  // if(use_options.char_response){
-    
-  // }
-  // if(use_options.lower_response){
-    
-  // }
-  // if(use_options.upper_response){
-    
-  // }
 }
-
-
 //button to start password gen.
 var generateBtn = document.querySelector("#generate");
 
