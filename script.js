@@ -10,16 +10,12 @@ var special_char = [" ","!","#","$","%","&","'","(",")","*","+",",","-",".","/",
 
 
 function generatePassword(){ 
+  //array to store arrays user has chosen for randomization
   var passwordArr = [];
-  //1. prompt user for password criteria
-  // a. password length: 8 < 128
-  // b. numbers, special characters, uppercase, lowercase
-  //2. validate user input 
-  //3. generate password based on user critera
-  //4. display password on page (return step in generatePassword)
-  // parseInt allows prompt to be number instead of string
+  //variable for length of password; parseInt so length_char is stored as numerical value
   var length_char = parseInt(prompt("Welcome! How many characters long do you want your password to be?"))
   // console.log(length_char);
+  //specified criteria for password
   if((length_char <= 128 && length_char >= 8) && (typeof length_char == 'number')){
   
     //user prompts
@@ -34,7 +30,7 @@ function generatePassword(){
       alert("You need to make at least one choice!")
       generatePassword();
     }
-
+    //if statements to add criteria that user wants in password to empty array (passwordArr)
     if(get_numbers){
       //add to passwordArr array
       passwordArr = passwordArr.concat(num);
@@ -56,18 +52,24 @@ function generatePassword(){
       passwordArr = passwordArr.concat(lowercase_letters);
       console.log (passwordArr);
     }
-
+    //array containing randomized password
     let password = []; //empty array
+    //forloop to iterate over length of array containing characters user wants to get random character
     for(var i = 0; i < length_char; i++){
+      //randomizer
       var random_password_char = passwordArr[Math.floor(Math.random()*passwordArr.length)];
       // console.log (random_password_char);
+      //adds random char. to password array
       password.push(random_password_char);
       console.log (password);
     }
+    //takes out commas
     var userPassword = password.join('');
     return userPassword;
 
   }
+  //condition when user doesn't abide by specified criteria
+  //causes user to loop back to beginning of generatePassword function
   else{
     alert("Your response needs to be between 8 and 128 char and a numerical value")
     generatePassword();
