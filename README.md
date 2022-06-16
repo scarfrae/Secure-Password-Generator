@@ -18,4 +18,4 @@ To create a randomized password for users.
 ## Test Instructions
 n/a
 ## Preview Image
-![image]
+![image](https://user-images.githubusercontent.com/105090726/173992509-4f96a8a7-084e-4329-aad9-80f924529804.png)
